@@ -1,7 +1,23 @@
 #include "stdlib.h"
 #include "stdio.h"
 
+#define MAX_ROWS 100
+#define MAX_DATA 512
 #define BUFFER_S 24
+
+struct Row {
+	int id;
+	char data[MAX_DATA];
+};
+
+struct Database {
+	struct Row[MAX_ROWS];
+};
+
+struct Connection {
+	File *file;
+	Database *db;
+};
 
 int getline(char line[], int max_l);
 
